@@ -1,0 +1,8 @@
+disease,deaths,cases,source,type
+SARS,774,8098,https://www.nhs.uk/conditions/sars/,Coronavirus
+MERS,858,2494,https://www.who.int/emergencies/mers-cov/en/,Coronavirus
+Swine flu (2009 H1N1),284500,1400000000,https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(12)70121-4/fulltext,Influenza
+Bird flu (H5N1),455,861,https://www.who.int/influenza/human_animal_interface/2020_01_20_tableH5N1.pdf?ua=1,Influenza
+Bird flu (H7N9),619,1622,https://www.who.int/en/news-room/fact-sheets/detail/influenza-(avian-and-other-zoonotic),Influenza
+Ebola, 11310,28616,https://apps.who.int/gho/data/node.ebola-sitrep.quick-downloads?lang=en,Ebolavirus
+Seasonal Influenza,470000,27000000,https://www.who.int/influenza/surveillance_monitoring/bod/FAQsInfluenzaMortalityEstimate.pdf?ua=1|https://fullfact.org/health/coronavirus-compare-influenza/,Influenza

@@ -1,0 +1,18 @@
+body {
+    background-color: #383838;
+}
+
+.bk-slider-title {
+    color : #eeeeee;
+    font-size: 3em !important;
+}
+
+.title {
+    color : #eeeeee;
+    font-family: 'Roboto Condensed';
+    font-size: 3em
+}
+
+.bk-root {
+    font-family : 'roboto condensed';
+}
