@@ -124,7 +124,8 @@ BubbleSize = Label(x = 100000000,
                 
 #Create slider object to control number of cases
 cases_slider = Slider(start=df[df["disease"] == "Covid-19"]["cases"].values[0],
-                      end=100000000, value=1, step=1, title="Cases", format = "0,0")
+                      end=100000000, value=df[df["disease"] == "Covid-19"]["cases"].values[0]
+                      , step=1, title="Cases", format = "0,0")
 
 #Define custom javascript callback to change data when user interacts with slider
 callback = CustomJS(args=dict(source=circle_source, cases = cases_slider),
@@ -177,16 +178,12 @@ p.legend.label_text_color = "#eeeeee"
 # output_file("covidvis.html", title = "something")
 
 layout = column(
+
     p,
     cases_slider,
 )
 
 script, div = components(layout)
-
-# show(layout)
-
-print("script: ", script)
-print("div:", div)
 
 html_template = r"""
 
@@ -196,7 +193,7 @@ html_template = r"""
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet"></head>
         <meta charset="utf-8">
-        <title>Bokeh Scatter Plots</title>
+        <title>Why Covid-19 is different</title>
 
         <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js"
         crossorigin="anonymous"></script>
@@ -209,8 +206,23 @@ html_template = r"""
 
     </head>
     <body>
-    <div><p class = "title">Why Covid-19 is different</p></div>
+    <div class="navbar">
+        <a href="https://github.com/HenrySumner95/covid-visualization"><img src="C:\Users\ashto\work\portfolio_site\img\github white.png" width = "25px" hspace = "20"></a>
+    </div>
+    <div><p class = "title">Why Covid-19 is different</p>
+         <p class = "little_title">Number of Cases vs Mortality for recent high-profile viruses</p></div>
+    <div class = "container">
         {1}
+    <div style = "padding-left : 50px; padding-right : 100px">
+        <p align = "center" class = "explanation">Use the slider at the bottom to control the number of Covid-19 cases.</p>
+        <p align = "center" class = "explanation">The predicted number of deaths from the disease is a simple calculation:</p>
+        <p align = "center" class = "calculation">Mortality(%) * Number of cases</p>
+        <br>
+        <p align = "center" class = "explanation">Covid-19 has not yet <b style = "color : #ff0052">infected</b> as many people as swine flu</p>
+        <p align = "center" class = "explanation">It is not as <b style = "color : #ff0052">deadly</b> as Ebola, Bird Flu, or SARS</p>
+        <p align = "center" class = "explanation">But it is both <b style = "color : #ff0052">deadly</b> enough and <b style = "color : #ff0052">infectious</b> enough to potentially be the worst pandemic since Spanish Flu, which killed 50 million people. <p align = "center" class = "explanation" style = "font-size: 1em">(The bubble wouldn't even fit on my graph)</p></p>        <p align = "center" class = "explanation"><b style = "color : #ff0052">Please</b> stay inside.</p>
+    </div>
+    </div>
     </body>
 </html>""".format(script, div)
 

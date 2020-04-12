@@ -4,7 +4,7 @@ body {
 
 .bk-slider-title {
     color : #eeeeee;
-    font-size: 3em !important;
+    font-size: 2em !important;
 }
 
 .title {
@@ -13,6 +13,53 @@ body {
     font-size: 3em
 }
 
+.little_title {
+    color : #eeeeee;
+    font-family: 'Roboto Condensed';
+    font-size: 1.5em;
+}
+
 .bk-root {
     font-family : 'roboto condensed';
 }
+
+.container {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    align-items: left;
+  }
+
+.explanation {
+    font-family : 'roboto condensed';
+    color : #eeeeee;
+    font-size : 1.5em
+}
+
+.calculation {
+    font-family : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color : #eeeeee;
+    font-size : 1.5em
+}
+
+.paragraph {
+    display: flex;
+    justify-content: center;
+  }
+
+.navbar {
+    overflow: hidden;
+    background-color: #383838;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+  }
+
+.navbar a {
+    float: right;
+    display: block;
+    color: #eeeeee;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
