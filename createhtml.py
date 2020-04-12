@@ -214,14 +214,27 @@ html_template = r"""
     <div class = "container">
         {1}
     <div style = "padding-left : 50px; padding-right : 100px">
-        <p align = "center" class = "explanation">Use the slider at the bottom to control the number of Covid-19 cases.</p>
+        <p align = "center" class = "explanation">Use the slider at the bottom to increase the number of Covid-19 cases on the graph.</p>
         <p align = "center" class = "explanation">The predicted number of deaths from the disease is a simple calculation:</p>
         <p align = "center" class = "calculation">Mortality(%) * Number of cases</p>
         <br>
-        <p align = "center" class = "explanation">Covid-19 has not yet <b style = "color : #ff0052">infected</b> as many people as swine flu</p>
+        <p align = "center" class = "explanation">Covid-19 has not yet <b style = "color : #ff0052">infected</b> as many people as swine flu or seasonal flu</p>
         <p align = "center" class = "explanation">It is not as <b style = "color : #ff0052">deadly</b> as Ebola, Bird Flu, or SARS</p>
-        <p align = "center" class = "explanation">But it is both <b style = "color : #ff0052">deadly</b> enough and <b style = "color : #ff0052">infectious</b> enough to potentially be the worst pandemic since Spanish Flu, which killed 50 million people. <p align = "center" class = "explanation" style = "font-size: 1em">(The bubble wouldn't even fit on my graph)</p></p>        <p align = "center" class = "explanation"><b style = "color : #ff0052">Please</b> stay inside.</p>
+        <p align = "center" class = "explanation">But it is both <b style = "color : #ff0052">deadly</b> enough and <b style = "color : #ff0052">infectious</b> enough to potentially be the worst pandemic since Spanish Flu, which killed 50 million people. <p align = "center" class = "explanation" style = "font-size: 1em">(The bubble wouldn't even fit on my graph)</p></p>        
+        <p align = "center" class = "explanation" style = "font-size : 2em"><b style = "color : #ff0052">Please</b> stay inside.</p>
     </div>
+    </div>
+    <div>
+    <p class = "title">
+    Sources
+    </p>
+    <p class = "explanation">Current Covid 19 cases and deaths:</p> <a href = "https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic_by_country_and_territory#" class = "explanation"> https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic_by_country_and_territory# </a> <p class = "explanation">(Compiled from WHO Daily situation report)</p>
+    <p class = "explanation">Bird Flu (H5N1):</p> <a href = "https://www.who.int/influenza/human_animal_interface/2020_01_20_tableH5N1.pdf?ua=1" class = "explanation">https://www.who.int/influenza/human_animal_interface/2020_01_20_tableH5N1.pdf?ua=1</a>
+    <p class = "explanation">SARS:</p> <a href = "https://www.nhs.uk/conditions/sars/" class = "explanation">https://www.nhs.uk/conditions/sars/</a>
+    <p class = "explanation">MERS:</p> <a href = "https://www.who.int/emergencies/mers-cov/en/" class = "explanation">https://www.who.int/emergencies/mers-cov/en/</a>
+    <p class = "explanation">Swine Flu:</p> <a href = "https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(12)70121-4/fulltext" class = "explanation">https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(12)70121-4/fulltext</a>
+    <p class = "explanation">Ebola:</p> <a href = "https://apps.who.int/gho/data/node.ebola-sitrep.quick-downloads?lang=en" class = "explanation">https://apps.who.int/gho/data/node.ebola-sitrep.quick-downloads?lang=en</a>
+    <p class = "explanation">Seasonal influenza: </p> <a href = "https://www.who.int/influenza/surveillance_monitoring/bod/FAQsInfluenzaMortalityEstimate.pdf?ua=1" class = "explanation">https://www.who.int/influenza/surveillance_monitoring/bod/FAQsInfluenzaMortalityEstimate.pdf?ua=1</a> <p class = "explanation"> | </p> <a href = "https://fullfact.org/health/coronavirus-compare-influenza/" class = "explanation">https://fullfact.org/health/coronavirus-compare-influenza/</a> <p class = "explanation">(Two sources)</p>
     </div>
     </body>
 </html>""".format(script, div)
