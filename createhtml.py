@@ -9,34 +9,50 @@ from bokeh.embed import components
 
 df = pd.read_csv("diseases.csv")
 
-source = 'https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic_by_country_and_territory#Confirmed_cases'
+source = 'https://en.wikipedia.org/wiki/COVID-19_pandemic_by_country_and_territory#Confirmed_cases'
 
 website_url = (requests
-               .get('https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic_by_country_and_territory#Confirmed_cases')
+               .get(source)
                .text)
 soup = BeautifulSoup(website_url, 'lxml')
 My_table = soup.find('table', {'class' : 'wikitable'})
-items = My_table.findAll('b')
+# items = My_table.findAll('b')
+
+items = My_table.findAll('th')
 
 cases_dict = {}
 
-#Keep the second and third items, cases and deaths respectively
 for item in items:
-    #determine where b tag starts and ends in the string
-    start = str(item).find("<b>") + len("<b>")
-    stop = str(item).find("</b>")
-    if items.index(item) == 1:
-        item = str(item)[start:stop]
-        item = item.replace(",", "")
-        item = int(item)
-        cases_dict.update({"cases" : [item]})
-    elif items.index(item) == 2:
-        item = str(item)[start:stop]
-        item = item.replace(",", "")
-        item = int(item)
-        cases_dict.update({"deaths" : [item]})
+    if items.index(item) == 7:
+        value = str(item.get_text(strip = True))
+        value = value.replace(",", "")
+        value = int(value)
+        cases_dict.update({"cases" : [value]})
+    elif items.index(item) == 8:
+        value = str(item.get_text(strip = True))
+        value = value.replace(",", "")
+        value = int(value)
+        cases_dict.update({"deaths" : [value]})
     else:
         continue
+
+#Keep the second and third items, cases and deaths respectively
+# for item in items:
+#     #determine where b tag starts and ends in the string
+#     start = str(item).find("<b>") + len("<b>")
+#     stop = str(item).find("</b>")
+#     if items.index(item) == 1:
+#         item = str(item)[start:stop]
+#         item = item.replace(",", "")
+#         item = int(item)
+#         cases_dict.update({"cases" : [item]})
+#     elif items.index(item) == 2:
+#         item = str(item)[start:stop]
+#         item = item.replace(",", "")
+#         item = int(item)
+#         cases_dict.update({"deaths" : [item]})
+#     else:
+#         continue
         
 #Add scraped info to df 
 cases_dict.update({"disease" : ["Covid-19"],
@@ -190,6 +206,11 @@ html_template = r"""
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta property="og:image" content="https://s3.eu-west-2.amazonaws.com/henrysumner.com/img/graph.PNG" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Why Covid-19 is different" />
+        <meta property="og:url" content="http://henrysumner.com/covid_visualisation/covidvis.html"/>
+        <meta property="og:description" content="Data visualization showing the reason why Covid-19 is not like other viruses" />
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet"></head>
         <meta charset="utf-8">
